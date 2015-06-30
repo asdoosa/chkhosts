@@ -211,8 +211,10 @@ cat >>$WEBPAGE << "PHP_FUNCTIONS_SECTION"
         function showstatus($pingname,$hostname)
         {
                 if (file_exists("../status-up/$pingname")) {
-                        echo '<td style="background-color:green; \
-				border-color: #000000; \
+                	$file = 'chkhosts-sysinfo-color.txt';
+			$contents = file_get_contents($file); 
+                        echo '<td style="background-color:$contents; \
+                        	border-color: #000000; \
 				border-width: 1px 1px 1px 1px">';
 			if (file_exists("system-info/$hostname.txt")) {
                         	echo "<b>";
